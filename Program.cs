@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Exercise
 {
     class Program
     {
-        private int[] SLS = new int[29];
+        private int[] luthfi = new int[29];
         private int n;
 
         public void Read()
@@ -23,9 +24,44 @@ namespace Exercise
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine($"Masukkan elemen array ke{i+1} :");
-               string s2 = Console.ReadLine();
-                SLS[i] = int.Parse(s2);
+                string s2 = Console.ReadLine();
+                luthfi[i] = int.Parse(s2);
             }
+        }
+
+        public void display()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("********************************");
+            Console.WriteLine("Elemen Array yang telah tersusun");
+            Console.WriteLine("********************************");
+            for (int sls = 0; sls < n; sls++)
+            {
+                Console.WriteLine(luthfi[sls]);
+            }
+            Console.WriteLine("");
+        }
+
+        public void InsertionsSort()
+        {
+            int k = luthfi[0];
+            for (int i = 1; i < n; i++)
+            {
+                for (int sls = 1; sls < n; sls++)
+                {
+                    if (luthfi[i] < k)
+                    {
+                        k = luthfi[i];
+                    }
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            Program kerja = new Program();
+            kerja.Read();
+            kerja.InsertionsSort();
+            kerja.display();
         }
     }
 }
