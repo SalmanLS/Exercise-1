@@ -3,14 +3,14 @@ using System.Globalization;
 
 namespace Exercise
 {
-    class Program
+    class Program //Membuat class program
     {
-        private int[] luthfi = new int[29];
-        private int n;
+        private int[] luthfi = new int[29]; //deklarasi array beserta maksimum datanya
+        private int n; // deklarasi variabel untuk mengisi data
 
-        public void Read()
+        public void Read() //fungsi untuk menerima masukkan
         {
-            while (true)
+            while (true) // untuk memastikan bahwa data tidak melebihi nilai maksimun
             {
                 Console.WriteLine("Masukkan banyaknya elemen pada array: ");
                 string s = Console.ReadLine();
@@ -21,37 +21,39 @@ namespace Exercise
                     Console.WriteLine("\n Maksimal elemen pada array adalah 29 \n");
 
             }
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++) //looping untuk memasukkan data
             {
-                Console.WriteLine($"Masukkan elemen array ke{i+1} :");
+                Console.Write($"Masukkan elemen array ke {i+1} :");
                 string s2 = Console.ReadLine();
                 luthfi[i] = int.Parse(s2);
             }
         }
 
-        public void display()
+        public void display() //fungsi untuk memunculkan hasil yang telah diurutkan
         {
             Console.WriteLine("");
             Console.WriteLine("********************************");
             Console.WriteLine("Elemen Array yang telah tersusun");
             Console.WriteLine("********************************");
-            for (int sls = 0; sls < n; sls++)
+            for (int i = 0; i < n; i++) 
             {
-                Console.WriteLine(luthfi[sls]);
+                Console.WriteLine(luthfi[i]);
             }
             Console.WriteLine("");
         }
 
-        public void InsertionsSort()
+        public void InsertionsSort() //fungsi untuk mengurutkan angka dari data-data didalam array
         {
-            int k = luthfi[0];
-            for (int i = 1; i < n; i++)
+            for (int i = 0; i < (n-2); i++)
             {
-                for (int sls = 1; sls < n; sls++)
+                for (int sls = 0; sls < n; sls++)
                 {
-                    if (luthfi[i] < k)
+                    if (luthfi[0] < luthfi[sls+1])
                     {
-                        k = luthfi[i];
+                        int temp;
+                        temp = luthfi[sls];
+                        luthfi[sls] = luthfi[0]; 
+                        luthfi[0] = temp;
                     }
                 }
             }
